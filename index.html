@@ -94,15 +94,15 @@
             border-color: var(--neon-unity);
         }
 
-
         .card video, .card img { 
             width: 100%; 
-            height: 220px; 
+            height: 210px;
             object-fit: cover; 
             background: #03060e;
             border-bottom: 2px solid rgba(255, 255, 255, 0.05);
             filter: brightness(0.9);
             transition: filter 0.3s ease;
+            display: block;
         }
 
         .card:hover video, .card:hover img {
@@ -245,7 +245,7 @@
                     <p>End-to-end automated testing project for a transportation web service. Features robust script architecture for UI verification, handling edge cases, and ensuring web application stability.</p>
                 </div>
                 <div class="buttons">
-                    <a href="https://github.com/jepaul710/qa-project-Urban-Routes-es" class="btn" style="flex: none; width: 100%;" target="_blank">View QA Repo</a>
+                    <a href="https://github.com/jepaul710/qa-project-Urban-Routes-es" class="btn" style="flex: none; width: 85%;" target="_blank">View QA Repo</a>
                 </div>
             </div>
         </div>
@@ -259,11 +259,37 @@
                     <p>Backend automated testing suite focused on API endpoint validation. Implements integration test scripts to verify server responses, data consistency, and HTTP status codes.</p>
                 </div>
                 <div class="buttons">
-                    <a href="https://github.com/jepaul710/qa-project-Urban-Grocers-app-es" class="btn" style="flex: none; width: 100%;" target="_blank">View API Repo</a>
+                    <a href="https://github.com/jepaul710/qa-project-Urban-Grocers-app-es" class="btn" style="flex: none; width: 85%;" target="_blank">View API Repo</a>
                 </div>
             </div>
         </div>
 
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const allVideos = document.querySelectorAll('video');
+            allVideos.forEach(video => {
+                // Intentamos reproducir explícitamente
+                const playPromise = video.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        // Reproducción automática forzada con éxito
+                        console.log('Video cargado y reproduciéndose.');
+                    }).catch(error => {
+                        // El navegador bloqueó el play automático, así que
+                        // forzamos la recarga del elemento y el mute total.
+                        console.log('Bloqueo de navegador detectado, reintentando con mute forzado...');
+                        video.muted = true;
+                        video.load();
+                        // En algunos navegadores, un pequeño delay ayuda
+                        setTimeout(() => { video.play(); }, 100);
+                    });
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
