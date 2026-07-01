@@ -205,8 +205,8 @@
         }
     </style>
 </head>
+    
 <body>
-
     <header>
         <h1>Jean Paul Huertas</h1>
         <p class="subtitle"><strong>Unity Game Developer | Gameplay Mechanics & Software QA</strong><br>
@@ -251,7 +251,7 @@
         </div>
 
         <div class="card">
-            <img src="img/urban-grocers.png" alt="Urban Grocers API Testing">
+            <img src="./img/urban-grocers.png" alt="Urban Grocers API Testing">
             <div class="card-content">
                 <div>
                     <span class="tag tag-qa">API Testing / Python</span>
@@ -265,31 +265,6 @@
         </div>
 
     </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const allVideos = document.querySelectorAll('video');
-            allVideos.forEach(video => {
-                // Intentamos reproducir explícitamente
-                const playPromise = video.play();
-
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        // Reproducción automática forzada con éxito
-                        console.log('Video cargado y reproduciéndose.');
-                    }).catch(error => {
-                        // El navegador bloqueó el play automático, así que
-                        // forzamos la recarga del elemento y el mute total.
-                        console.log('Bloqueo de navegador detectado, reintentando con mute forzado...');
-                        video.muted = true;
-                        video.load();
-                        // En algunos navegadores, un pequeño delay ayuda
-                        setTimeout(() => { video.play(); }, 100);
-                    });
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>
