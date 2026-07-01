@@ -5,116 +5,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jean Paul | Unity Game Developer & Software QA</title>
 <style>
+
         :root {
-            --bg-main: #0B0F19;
-            --bg-card: #151B2C;
-            --text-primary: #F3F4F6;
-            --text-secondary: #9CA3AF;
-            --accent-unity: #23e8a2;
-            --accent-qa: #3b82f6;
-            --border-color: rgba(255, 255, 255, 0.08);
+            --bg-darker: #050811;
+            --bg-card: #0c1324;
+            --neon-unity: #00ff9d;
+            --neon-qa: #00d2ff;
+            --text-main: #e2e8f0;
+            --text-muted: #64748b;
+            --cyber-grid: rgba(0, 210, 255, 0.03);
         }
 
+
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--bg-main); 
-            color: var(--text-primary); 
+            font-family: 'Segoe UI', Impact, sans-serif; 
+            background-color: var(--bg-darker);
+            background-image: 
+                linear-gradient(to right, var(--cyber-grid) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--cyber-grid) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-main); 
             margin: 0; 
             padding: 40px 20px;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
+
 
         header { 
             text-align: center; 
-            padding: 40px 20px; 
+            padding: 60px 20px; 
             max-width: 800px; 
-            margin: 0 auto 20px auto; 
+            margin: 0 auto; 
+            position: relative;
         }
 
         h1 { 
-            margin-bottom: 8px; 
+            margin-bottom: 5px; 
             color: #ffffff; 
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 3.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5), 0 0 20px rgba(0, 210, 255, 0.2);
         }
 
         .subtitle { 
-            color: var(--text-secondary); 
-            margin-top: 0; 
-            font-size: 1.2rem; 
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--neon-qa); 
+            margin-top: 5px; 
+            font-size: 1.1rem; 
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            opacity: 0.8;
         }
+
 
         .grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
-            gap: 30px; 
+            gap: 35px; 
             max-width: 1140px; 
-            margin: 0 auto; 
-            padding: 20px 0;
+            margin: 40px auto 0 auto; 
         }
+
 
         .card { 
             background: var(--bg-card); 
-            border-radius: 16px; 
+            border-radius: 12px; 
             overflow: hidden; 
-            border: 1px solid var(--border-color); 
+            border: 2px solid rgba(255, 255, 255, 0.05); 
             display: flex; 
             flex-direction: column; 
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
+
 
         .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.25);
+            border-color: var(--neon-qa);
         }
 
-        .card img, .card video { 
-            width: 100%; 
-            height: 210px; 
-            object-fit: cover; 
-            background: #0d1117;
-            border-bottom: 1px solid var(--border-color);
+
+        .card:has(.tag-unity):hover {
+            box-shadow: 0 0 25px rgba(0, 255, 157, 0.25);
+            border-color: var(--neon-unity);
         }
+
+
+        .card video, .card img { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+            background: #03060e;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            filter: brightness(0.9);
+            transition: filter 0.3s ease;
+        }
+
+        .card:hover video, .card:hover img {
+            filter: brightness(1.1);
+        }
+
 
         .card-content { 
-            padding: 24px; 
+            padding: 25px; 
             display: flex; 
             flex-direction: column; 
             justify-content: space-between; 
             flex-grow: 1; 
+            background: linear-gradient(180deg, transparent 0%, rgba(5, 8, 17, 0.6) 100%);
         }
 
         .card-content h3 {
-            margin: 12px 0 8px 0;
-            font-size: 1.4rem;
+            margin: 15px 0 10px 0;
+            font-size: 1.5rem;
             color: #ffffff;
+            letter-spacing: 0.5px;
         }
 
         .card-content p {
-            color: var(--text-secondary);
+            color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 20px;
+            line-height: 1.5;
+            margin-bottom: 25px;
             margin-top: 0;
         }
 
+
         .tag { 
             display: inline-block; 
-            padding: 4px 12px; 
-            border-radius: 20px; 
-            font-size: 0.75rem; 
-            font-weight: 600; 
+            padding: 5px 14px; 
+            border-radius: 4px; 
+            font-size: 0.7rem; 
+            font-weight: 800; 
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
         }
         
-        .tag-unity { background: rgba(35, 232, 162, 0.1); color: var(--accent-unity); border: 1px solid rgba(35, 232, 162, 0.2); }
-        .tag-qa { background: rgba(59, 130, 246, 0.1); color: var(--accent-qa); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .tag-unity { 
+            background: rgba(0, 255, 157, 0.1); 
+            color: var(--neon-unity); 
+            border: 1px solid var(--neon-unity); 
+        }
+        
+        .tag-qa { 
+            background: rgba(0, 210, 255, 0.1); 
+            color: var(--neon-qa); 
+            border: 1px solid var(--neon-qa); 
+        }
+
 
         .buttons { 
             display: flex; 
@@ -123,33 +166,42 @@
 
         .btn { 
             flex: 1; 
-            padding: 10px 16px; 
+            padding: 12px 16px; 
             text-align: center; 
             text-decoration: none; 
-            border-radius: 8px; 
-            font-size: 0.9rem; 
-            font-weight: 600; 
-            transition: background 0.2s ease, transform 0.1s ease;
+            border-radius: 6px; 
+            font-size: 0.85rem; 
+            font-weight: 800; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
             cursor: pointer;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
         }
+
 
         .btn:first-child {
             background: #ffffff;
-            color: #0B0F19;
+            color: var(--bg-darker);
         }
 
         .btn:first-child:hover {
-            background: #E5E7EB;
+            background: var(--neon-qa);
+            color: var(--bg-darker);
+            box-shadow: 0 0 15px var(--neon-qa);
         }
 
+
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 255, 157, 0.05);
+            color: var(--neon-unity);
+            border: 1px solid rgba(0, 255, 157, 0.3);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--neon-unity);
+            color: var(--bg-darker);
+            box-shadow: 0 0 15px var(--neon-unity);
         }
     </style>
 </head>
@@ -163,10 +215,8 @@
 
     <main class="grid">
         
-
         <div class="card">
-
-            <video autoplay loop muted playsinline style="width: 100%; height: 200px; object-fit: cover; background: #2a2a2a;">
+            <video autoplay loop muted playsinline preload="auto" style="width: 100%; height: 210px; object-fit: cover; background: #0d1117;">
                 <source src="img/rock-n-jump.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -184,7 +234,7 @@
         </div>
 
         <div class="card">
-            <video autoplay loop muted playsinline style="width: 100%; height: 200px; object-fit: cover; background: #2a2a2a;">
+            <video autoplay loop muted playsinline preload="auto" style="width: 100%; height: 210px; object-fit: cover; background: #0d1117;">
                 <source src="img/urban-routes.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
