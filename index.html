@@ -601,6 +601,34 @@
             background-color: #03060e;
         }
 
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active, .lang-btn:hover {
+            border-color: var(--neon-qa);
+            color: var(--neon-qa);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+        }
+
         @media (max-width: 900px) {
             .about-hud {
                 grid-template-columns: 1fr;
@@ -643,7 +671,7 @@
 
                 <div class="character-card">
                     <div class="avatar-box">
-                        <img src="./img/photo.jpg" alt="Player Status Photo" class="avatar-image">
+                        <img src="./img/photo.png" alt="Player Status Photo" class="avatar-image">
                         <div class="player-info">
                             <h3>jepaul710</h3>
                             <p>Level 24 Dev / QA</p>
@@ -789,8 +817,7 @@
                 <div class="card">
 
                     <video autoplay loop muted playsinline preload="auto">
-                        <source src="./img/rock-n-jump.gif" type="video/mp4">
-                        Your browser does not support the video tag.
+                        <source src="./img/rock-n-jump.gif" alt="Rock N' Jump Gameplay">
                     </video>
                     <div class="card-content">
                         <div>
@@ -816,8 +843,7 @@
 
                 <div class="card">
                     <video autoplay loop muted playsinline preload="auto">
-                        <source src="./img/urban-routes.gif" type="video/mp4">
-                        Your browser does not support the video tag.
+                        <source src="./img/urban-routes.gif" alt="Urban Routes Automation Demo">
                     </video>
                     <div class="card-content">
                         <div>
