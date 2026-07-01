@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-
         :root {
             --bg-darker: #050811;
             --bg-card: #0c1324;
@@ -48,6 +47,47 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* Selectores de Idioma Estilo Arcade HUD */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 8px;
+            background: rgba(5, 8, 17, 0.85);
+            padding: 4px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .lang-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            padding: 6px 14px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            clip-path: polygon(0 0, 85% 0, 100% 30%, 100% 100%, 15% 100%, 0 70%);
+        }
+
+        .lang-btn.active {
+            background: rgba(0, 210, 255, 0.15);
+            color: var(--neon-qa);
+            box-shadow: inset 0 0 8px rgba(0, 210, 255, 0.3);
+            text-shadow: 0 0 6px rgba(0, 210, 255, 0.6);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         header { 
@@ -175,11 +215,16 @@
             margin-bottom: 25px;
         }
 
-        .avatar-icon {
-            font-size: 4.5rem;
-            color: var(--neon-pink);
-            text-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+        /* Dimensiones fijas estrictas para resguardar el HUD */
+        .avatar-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
             margin-bottom: 15px;
+            display: inline-block;
         }
 
         .player-info h3 {
@@ -220,7 +265,7 @@
         .xp-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--neon-pink), #ff5e00);
-            width: 85%; /* Nivel de progreso */
+            width: 85%;
             box-shadow: 0 0 10px var(--neon-pink);
         }
 
@@ -384,7 +429,8 @@
             border-color: var(--neon-unity);
         }
 
-        .card video, .card img { 
+        /* Contenedor estricto para GIFs e imágenes de proyectos */
+        .card .project-media { 
             width: 100%; 
             height: 220px; 
             object-fit: cover; 
@@ -395,7 +441,7 @@
             display: block;
         }
 
-        .card:hover video, .card:hover img {
+        .card:hover .project-media {
             filter: brightness(1.1);
         }
 
@@ -592,6 +638,11 @@
             text-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
         }
 
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
         footer {
             padding: 40px 0;
             text-align: center;
@@ -599,34 +650,6 @@
             font-size: 0.9rem;
             color: var(--text-muted);
             background-color: #03060e;
-        }
-
-        .lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-        }
-
-        .lang-btn {
-            background: var(--bg-card);
-            color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 12px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn.active, .lang-btn:hover {
-            border-color: var(--neon-qa);
-            color: var(--neon-qa);
-            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
         }
 
         @media (max-width: 900px) {
@@ -646,12 +669,12 @@
 </head>
 <body>
 
-<div class="lang-switcher">
-    <button class="lang-btn active" onclick="switchLanguage('es')">ESP</button>
-    <button class="lang-btn" onclick="switchLanguage('en')">ENG</button>
-</div>
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLanguage('es')">ESP</button>
+        <button class="lang-btn" onclick="switchLanguage('en')">ENG</button>
+    </div>
     
-<header>
+    <header>
         <div class="container">
             <div class="gamertag">Jean Paul Huertas</div>
             <h1 id="hero-title">UNITY DEVELOPER & SOFTWARE QA</h1>
@@ -668,16 +691,14 @@
             <h2 class="section-title pink" id="about-title" data-es="Acerca De Mí" data-en="About Me">Acerca De Mí</h2>
             
             <div class="about-hud">
-
                 <div class="character-card">
                     <div class="avatar-box">
-                        <img src="./img/photo.png" alt="Player Status Photo" class="avatar-image">
+                        <img src="./img/photo.jpg" alt="Player Status Photo" class="avatar-image">
                         <div class="player-info">
                             <h3>jepaul710</h3>
                             <p>Level 24 Dev / QA</p>
                         </div>
                     </div>
-
 
                     <div class="xp-bar-container">
                         <div class="xp-label">
@@ -688,7 +709,6 @@
                             <div class="xp-fill"></div>
                         </div>
                     </div>
-
 
                     <div class="player-stats">
                         <div class="stat-row">
@@ -754,7 +774,6 @@
         <div class="container">
             <div class="skills-section">
                 <div class="skills-grid">
-                    
                     <div class="skill-column">
                         <h4 id="skill-title1" data-es="Árbol de Desarrollo (Unity)" data-en="Development Tree (Unity)">Árbol de Desarrollo (Unity)</h4>
                         <div class="skill-list">
@@ -797,12 +816,11 @@
                             <div class="skill-node qa-node">
                                 <i class="fa-solid fa-brain"></i>
                                 <div class="skill-info">
-                                    <div class="name" data-es="Optimización de pruebas / Casos Límite" data-en="Testing optimization / Edge Cases">Optimización de pruebas / Casos Límite</div>
+                                    <div class="name" data-es="Optimización de pruebas / Casos Límite" data-en="Testing Optimization / Edge Cases">Optimización de pruebas / Casos Límite</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -813,12 +831,9 @@
             <h2 class="section-title" id="portfolio-title" data-es="Mi Portafolio" data-en="My Portfolio">Mi Portafolio</h2>
             
             <div class="grid">
-                
                 <div class="card">
-
-                    <video autoplay loop muted playsinline preload="auto">
-                        <source src="./img/rock-n-jump.gif" alt="Rock N' Jump Gameplay">
-                    </video>
+                   
+                    <img src="./img/rock-n-jump.gif" alt="Rock N' Jump Arcade Gameplay GIF" class="project-media">
                     <div class="card-content">
                         <div>
                             <span class="tag tag-unity">Unity / C#</span>
@@ -842,16 +857,14 @@
                 </div>
 
                 <div class="card">
-                    <video autoplay loop muted playsinline preload="auto">
-                        <source src="./img/urban-routes.gif" alt="Urban Routes Automation Demo">
-                    </video>
+                
+                    <img src="./img/urban-routes.gif" alt="Urban Routes QA Automation System GIF" class="project-media">
                     <div class="card-content">
                         <div>
                             <span class="tag tag-qa" data-es="Automatización de Pruebas" data-en="Test Automation">Automatización de Pruebas</span>
                             <h3>Urban Routes Automation</h3>
                             <p id="proj2-desc" data-es="Proyecto de automatización de pruebas enfocado en un servicio web de movilidad de pasajeros y cálculo exacto de tarifas." data-en="Test automation project focused on a passenger mobility web service and accurate fare calculation.">Proyecto de automatización de pruebas enfocado en un servicio web de movilidad de pasajeros y cálculo exacto de tarifas.</p>
                             
-
                             <div class="my-contribution">
                                 <div class="contribution-title">
                                     <i class="fa-solid fa-bug-slash"></i> <span data-es="Mi Contribución Puntual" data-en="My Specific Contribution">Mi Contribución Puntual</span>
@@ -862,20 +875,19 @@
                             </div>
                         </div>
                         <div class="buttons">
-                            <a href="https://github.com/jepaul710/qa-project-Urban-Routes-es" class="btn btn-primary" style="flex: none; width: 85%;" target="_blank" data-es="Ver Repositorio QA" data-en="View Repository">Ver Repositorio</a>
+                            <a href="https://github.com/jepaul710/qa-project-Urban-Routes-es" class="btn btn-primary" style="flex: none; width: 100%;" target="_blank" data-es="Ver Repositorio QA" data-en="View QA Repository">Ver Repositorio QA</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="card">
-                    <img src="./img/urban-grocers.png" alt="Urban Grocers API Testing Screenshot">
+                    <img src="./img/urban-grocers.png" alt="Urban Grocers API Testing Screenshot" class="project-media">
                     <div class="card-content">
                         <div>
                             <span class="tag tag-qa" data-es="Pruebas de API" data-en="API Testing">Pruebas de API</span>
                             <h3>Urban Grocers API</h3>
                             <p id="proj3-desc" data-es="Validación automatizada de back-end centrada en endpoints RESTful de una plataforma de entrega de alimentos." data-en="Automated back-end validation focused on RESTful endpoints of a food delivery platform.">Validación automatizada de back-end centrada en endpoints RESTful de una plataforma de entrega de alimentos.</p>
                             
-
                             <div class="my-contribution">
                                 <div class="contribution-title">
                                     <i class="fa-solid fa-gears"></i> <span data-es="Mi Contribución Puntual" data-en="My Specific Contribution">Mi Contribución Puntual</span>
@@ -886,11 +898,10 @@
                             </div>
                         </div>
                         <div class="buttons">
-                            <a href="https://github.com/jepaul710/qa-project-Urban-Grocers-app-es" class="btn btn-primary" style="flex: none; width: 85%;" target="_blank" data-es="Ver Repositorio API" data-en="View Repository">Ver Repositorio</a>
+                            <a href="https://github.com/jepaul710/qa-project-Urban-Grocers-app-es" class="btn btn-primary" style="flex: none; width: 100%;" target="_blank" data-es="Ver Repositorio API" data-en="View API Repository">Ver Repositorio API</a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -957,6 +968,5 @@
             });
         }
     </script>
-
 </body>
 </html>
