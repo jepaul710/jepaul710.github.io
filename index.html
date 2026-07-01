@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Paul | Unity Game Developer & Software QA</title>
+    <style>
+        body { font-family: sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; }
+        header { text-align: center; padding: 40px 20px; max-width: 800px; margin: 0 auto; }
+        h1 { margin-bottom: 5px; color: #00b4d8; font-size: 2.5rem; }
+        .subtitle { color: #aaa; margin-top: 10px; font-size: 1.1rem; line-height: 1.6; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 40px auto 0 auto; }
+        .card { background: #1e1e1e; border-radius: 8px; overflow: hidden; border: 1px solid #333; display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 200px; object-fit: cover; background: #2a2a2a; }
+        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-content h3 { margin-top: 0; color: #00b4d8; font-size: 1.3rem; }
+        .tag { display: inline-block; background: #333; padding: 4px 8px; border-radius: 4px; font-size: 12px; margin-bottom: 10px; font-weight: bold; }
+        .tag-unity { background: #023e8a; color: #fff; }
+        .tag-qa { background: #38b000; color: #fff; }
+        .buttons { margin-top: 20px; display: flex; gap: 10px; }
+        .btn { flex: 1; text-align: center; padding: 10px; background: #007acc; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold; }
+        .btn-secondary { background: #fa5c5c; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Jean Paul</h1>
+        <p class="subtitle"><strong>Unity Game Developer | Gameplay Mechanics & Software QA</strong><br>
+        Developer exclusively focused on video game creation in Unity. Specialized in C# logic programming, game systems design, and implementing quality assurance (QA) testing to deliver clean, optimized, and bug-free projects.</p>
+    </header>
+
+    <main class="grid">
+        
+
+        <div class="card">
+
+            <video autoplay loop muted playsinline style="width: 100%; height: 200px; object-fit: cover; background: #2a2a2a;">
+                <source src="img/rock-n-jump.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="card-content">
+                <div>
+                    <span class="tag tag-unity">Unity / C#</span>
+                    <h3>Rock N' Jump</h3>
+                    <p>This indie arcade platformer game combines the styles of Google Jumping Dinosaur and Flappy Bird. Features custom physics, logic-driven mechanics, score tracking systems, and coroutines for dynamic gameplay loops.</p>
+                </div>
+                <div class="buttons">
+                    <a href="https://github.com/jepaul710/Rock-N-Jump" class="btn" target="_blank">View Code</a>
+                    <a href="https://jepaul710.itch.io/rock-n-jump" class="btn btn-secondary" target="_blank">Play on Itch.io</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <video autoplay loop muted playsinline style="width: 100%; height: 200px; object-fit: cover; background: #2a2a2a;">
+                <source src="img/urban-routes.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="card-content">
+                <div>
+                    <span class="tag tag-qa">Automated Testing</span>
+                    <h3>Urban Routes Automation</h3>
+                    <p>End-to-end automated testing project for a transportation web service. Features robust script architecture for UI verification, handling edge cases, and ensuring web application stability.</p>
+                </div>
+                <div class="buttons">
+                    <a href="https://github.com/jepaul710/qa-project-Urban-Routes-es" class="btn" style="flex: none; width: 100%;" target="_blank">View QA Repo</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/urban-grocers.png" alt="Urban Grocers API Testing">
+            <div class="card-content">
+                <div>
+                    <span class="tag tag-qa">API Testing</span>
+                    <h3>Urban Grocers API Automation</h3>
+                    <p>Backend automated testing suite focused on API endpoint validation. Implements integration test scripts to verify server responses, data consistency, and HTTP status codes.</p>
+                </div>
+                <div class="buttons">
+                    <a href="https://github.com/jepaul710/qa-project-Urban-Grocers-app-es" class="btn" style="flex: none; width: 100%;" target="_blank">View API Repo</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>
