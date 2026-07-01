@@ -4,22 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jean Paul | Unity Game Developer & Software QA</title>
-    <style>
-        body { font-family: sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; }
-        header { text-align: center; padding: 40px 20px; max-width: 800px; margin: 0 auto; }
-        h1 { margin-bottom: 5px; color: #00b4d8; font-size: 2.5rem; }
-        .subtitle { color: #aaa; margin-top: 10px; font-size: 1.1rem; line-height: 1.6; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1200px; margin: 40px auto 0 auto; }
-        .card { background: #1e1e1e; border-radius: 8px; overflow: hidden; border: 1px solid #333; display: flex; flex-direction: column; }
-        .card img { width: 100%; height: 200px; object-fit: cover; background: #2a2a2a; }
-        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card-content h3 { margin-top: 0; color: #00b4d8; font-size: 1.3rem; }
-        .tag { display: inline-block; background: #333; padding: 4px 8px; border-radius: 4px; font-size: 12px; margin-bottom: 10px; font-weight: bold; }
-        .tag-unity { background: #023e8a; color: #fff; }
-        .tag-qa { background: #38b000; color: #fff; }
-        .buttons { margin-top: 20px; display: flex; gap: 10px; }
-        .btn { flex: 1; text-align: center; padding: 10px; background: #007acc; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; font-weight: bold; }
-        .btn-secondary { background: #fa5c5c; }
+<style>
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #151B2C;
+            --text-primary: #F3F4F6;
+            --text-secondary: #9CA3AF;
+            --accent-unity: #23e8a2;
+            --accent-qa: #3b82f6;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-primary); 
+            margin: 0; 
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        header { 
+            text-align: center; 
+            padding: 40px 20px; 
+            max-width: 800px; 
+            margin: 0 auto 20px auto; 
+        }
+
+        h1 { 
+            margin-bottom: 8px; 
+            color: #ffffff; 
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle { 
+            color: var(--text-secondary); 
+            margin-top: 0; 
+            font-size: 1.2rem; 
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+            gap: 30px; 
+            max-width: 1140px; 
+            margin: 0 auto; 
+            padding: 20px 0;
+        }
+
+        .card { 
+            background: var(--bg-card); 
+            border-radius: 16px; 
+            overflow: hidden; 
+            border: 1px solid var(--border-color); 
+            display: flex; 
+            flex-direction: column; 
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .card img, .card video { 
+            width: 100%; 
+            height: 210px; 
+            object-fit: cover; 
+            background: #0d1117;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-content { 
+            padding: 24px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            flex-grow: 1; 
+        }
+
+        .card-content h3 {
+            margin: 12px 0 8px 0;
+            font-size: 1.4rem;
+            color: #ffffff;
+        }
+
+        .card-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .tag { 
+            display: inline-block; 
+            padding: 4px 12px; 
+            border-radius: 20px; 
+            font-size: 0.75rem; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .tag-unity { background: rgba(35, 232, 162, 0.1); color: var(--accent-unity); border: 1px solid rgba(35, 232, 162, 0.2); }
+        .tag-qa { background: rgba(59, 130, 246, 0.1); color: var(--accent-qa); border: 1px solid rgba(59, 130, 246, 0.2); }
+
+        .buttons { 
+            display: flex; 
+            gap: 12px; 
+        }
+
+        .btn { 
+            flex: 1; 
+            padding: 10px 16px; 
+            text-align: center; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            transition: background 0.2s ease, transform 0.1s ease;
+            cursor: pointer;
+        }
+
+        .btn:first-child {
+            background: #ffffff;
+            color: #0B0F19;
+        }
+
+        .btn:first-child:hover {
+            background: #E5E7EB;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
     </style>
 </head>
 <body>
