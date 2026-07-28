@@ -465,6 +465,133 @@
             font-size: 1.1rem;
         }
 
+        .cv-section {
+            padding: 60px 0;
+        }
+        
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        @media (min-width: 992px) {
+            .cv-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .cv-block-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-qa, #00d2ff);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid rgba(0, 210, 255, 0.2);
+            padding-bottom: 10px;
+        }
+        
+        .cv-block-title.exp {
+            color: var(--neon-unity, #00ff9d);
+            border-bottom-color: rgba(0, 255, 157, 0.2);
+        }
+        
+        .cyber-card {
+            position: relative;
+            background: rgba(12, 19, 36, 0.7);
+            border-left: 3px solid var(--neon-qa, #00d2ff);
+            padding: 20px;
+            margin-bottom: 20px;
+            clip-path: polygon(0 0, 97% 0, 100% 15px, 100% 100%, 0 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cv-grid .exp-column .cyber-card {
+            border-left-color: var(--neon-unity, #00ff9d);
+        }
+        
+        .cyber-card:hover {
+            transform: translateX(5px);
+            background: rgba(18, 28, 51, 0.9);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+        
+        .cv-grid .exp-column .cyber-card:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+        }
+        
+        .card-header-cyber {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        
+        .role-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0;
+        }
+        
+        .company-tag {
+            color: var(--neon-qa, #00d2ff);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .exp-column .company-tag {
+            color: var(--neon-unity, #00ff9d);
+        }
+        
+        .date-badge {
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #a0aab8;
+            font-family: monospace;
+        }
+        
+        .card-location {
+            font-size: 0.85rem;
+            color: #7a889b;
+            margin-bottom: 12px;
+        }
+        
+        .cyber-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .cyber-list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #c0cbdd;
+            line-height: 1.4;
+        }
+        
+        .cyber-list li::before {
+            content: "➢";
+            position: absolute;
+            left: 0;
+            color: var(--neon-qa, #00d2ff);
+            font-size: 0.8rem;
+        }
+        
+        .exp-column .cyber-list li::before {
+            color: var(--neon-unity, #00ff9d);
+        }
+
         .grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); 
@@ -792,7 +919,7 @@
                             <span class="stat-value">Gameplay Developper</span>
                         </div>
                         <div class="stat-row">
-                            <span class="stat-name" data-es="Clase Secundaria" data-en="Secondary Class">Clase Secundaria</span>
+                            <span class="stat-name" data-es="Clase Secundaria" data-en="Secondary Class ">Clase Secundaria</span>
                             <span class="stat-value">Quality Assurance</span>
                         </div>
                         <div class="stat-row">
@@ -900,6 +1027,50 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cv-section container" id="trayectoria">
+    <div class="cv-grid">
+        
+        <div class="edu-column">
+            <h2 class="cv-block-title">
+                <i class="fa-solid fa-graduation-cap"></i> 
+                <span data-es="Educación & Bootcamps" data-en="Education & Bootcamps">Educación & Bootcamps</span>
+            </h2>
+
+            <div class="cyber-card">
+                <div class="card-header-cyber">
+                    <div>
+                        <h3 class="role-title" data-es="Bootcamp en Desarrollo de Unity" data-en="Unity Development Bootcamp">Bootcamp en Desarrollo de Unity</h3>
+                        <span class="company-tag">Generation</span>
+                    </div>
+                    <span class="date-badge" data-es="Finalización: Ago 28, 2026" data-en="Completion: Aug 28, 2026">Finalización: Ago 28, 2026</span>
+                </div>
+                <div class="card-location"><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</div>
+            </div>
+
+            <div class="cyber-card">
+                <div class="card-header-cyber">
+                    <div>
+                        <h3 class="role-title" data-es="Bootcamp en QA Engineer" data-en="QA Engineer Bootcamp">Bootcamp en QA Engineer</h3>
+                        <span class="company-tag">Triple Ten</span>
+                    </div>
+                    <span class="date-badge" data-es="Abr 06, 2026" data-en="Apr 06, 2026">Abr 06, 2026</span>
+                </div>
+                <div class="card-location"><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</div>
+            </div>
+
+            <div class="cyber-card">
+                <div class="card-header-cyber">
+                    <div>
+                        <h3 class="role-title" data-es="Técnico Profesional en Programación de Software" data-en="Software Programming Professional Technician">Técnico Profesional en Programación de Software</h3>
+                        <span class="company-tag" data-es="Servicio Nacional de Aprendizaje (SENA)" data-en="National Learning Service (SENA)">Servicio Nacional de Aprendizaje (SENA)</span>
+                    </div>
+                    <span class="date-badge" data-es="Dic 20, 2018" data-en="Dec 20, 2018">Dic 20, 2018</span>
+                </div>
+                <div class="card-location"><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</div>
             </div>
         </div>
     </section>
