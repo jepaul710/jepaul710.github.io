@@ -857,6 +857,75 @@
                 font-size: 2.8rem;
             }
         }
+
+        .interactive-line {
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        
+        .action-text {
+            color: #00ff9d;
+            font-weight: bold;
+            animation: blink 1.2s infinite;
+            padding: 2px 6px;
+            border: 1px dashed #00ff9d;
+            border-radius: 4px;
+        }
+        
+        .action-text:hover {
+            background: rgba(0, 255, 157, 0.2);
+            box-shadow: 0 0 10px #00ff9d;
+        }
+        
+        .hidden-boss-banner {
+            position: relative;
+            width: 100%;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-top: 0;
+            border-radius: 8px;
+            background-image: url('./img/flyer.jpg');
+            background-size: cover;
+            background-position: center 35%;
+            border: 0px solid #ff007f;
+        }
+        
+        .hidden-boss-banner.active {
+            max-height: 250px;
+            opacity: 1;
+            margin-top: 25px;
+            border: 1px solid #ff007f;
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+        }
+        
+        .hidden-boss-banner .banner-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(10, 10, 12, 0.7) 0%, rgba(10, 10, 12, 0.9) 100%);
+        }
+        
+        .hidden-boss-banner .banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .hidden-boss-banner h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px #ff007f;
+            margin-bottom: 8px;
+        }
+        
+        .hidden-boss-banner p {
+            color: #00d2ff;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -1191,36 +1260,49 @@
     </section>
     
     <section id="contact" class="boss-room">
-        <div class="container">
-            <h2 class="section-title pink" data-es="Contrata a tu mejor guerrero (Contacto)" data-en="Hire your best warrior (Contact)">Contrata a tu mejor guerrero (Contacto)</h2>
-            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);" id="contact-desc" data-es="¿Quieres que desarrolle las mecánicas de tu próximo proyecto o prefieres que asuma el control de la calidad y rompa todos tus bugs? ¡Soy el Power-Up para esa idea!" data-en="Do you want me to develop the mechanics of your next project or do you prefer me to take over quality control and smash all your bugs? I am the Power-Up for that idea!">¿Quieres que desarrolle las mecánicas de tu próximo proyecto o prefieres que asuma el control de la calidad y rompa todos tus bugs? ¡Soy el Power-Up para esa idea!</p>
-            
-            <div class="terminal-panel">
-                <div class="terminal-header">
-                    <div class="terminal-dots">
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                    </div>
-                    <span>COMMUNICATION_TERMINAL.EXE</span>
+    <div class="container">
+        <h2 class="section-title pink" data-es="Contrata a tu mejor guerrero (Contacto)" data-en="Hire your best warrior (Contact)">Contrata a tu mejor guerrero (Contacto)</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);" id="contact-desc" data-es="¿Quieres que desarrolle las mecánicas de tu próximo proyecto o prefieres que asuma el control de la calidad y rompa todos tus bugs? ¡Soy el Power-Up para esa idea!" data-en="Do you want me to develop the mechanics of your next project or do you prefer me to take over quality control and smash all your bugs? I am the Power-Up for that idea!">¿Quieres que desarrolle las mecánicas de tu próximo proyecto o prefieres que asuma el control de la calidad y rompa todos tus bugs? ¡Soy el Power-Up para esa idea!</p>
+        
+        <div class="terminal-panel">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
                 </div>
-                <div class="terminal-body">
-                    <div class="terminal-line">
-                        <span class="terminal-prompt">$</span> ping -a jean-paul-huertas
-                    </div>
-                    <div class="terminal-line" style="color: #ffffff;">
-                        <span id="terminal-resp" data-es="Respuesta de Jean Paul: &quot;Disponible para misiones de desarrollo y control de calidad.&quot;" data-en="Response from Jean Paul: &quot;Available for development and quality control missions.&quot;">Respuesta de Jean Paul: "Disponible para misiones de desarrollo y control de calidad."</span>
-                    </div>
-                    <div class="terminal-line">
-                        <span class="terminal-prompt">$</span> show --links
-                    </div>
-                    <div class="terminal-line" style="color: #ffffff;">
-                        LinkedIn: <a href="https://www.linkedin.com/in/jean-paul-huertas" class="terminal-link" target="_blank">linkedin.com/in/jean-paul-huertas</a><br>
-                        GitHub: <a href="https://github.com/jepaul710" class="terminal-link" target="_blank">github.com/jepaul710</a>
-                    </div>
-                    <div class="terminal-line">
-                        <span class="terminal-prompt">$</span> <span style="animation: blink 1s infinite;">_</span>
-                    </div>
+                <span>COMMUNICATION_TERMINAL.EXE</span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line">
+                    <span class="terminal-prompt">$</span> ping -a jean-paul-huertas
+                </div>
+                <div class="terminal-line" style="color: #ffffff;">
+                    <span id="terminal-resp" data-es="Respuesta de Jean Paul: &quot;Disponible para misiones de desarrollo y control de calidad.&quot;" data-en="Response from Jean Paul: &quot;Available for development and quality control missions.&quot;">Respuesta de Jean Paul: "Disponible para misiones de desarrollo y control de calidad."</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="terminal-prompt">$</span> show --links
+                </div>
+                <div class="terminal-line" style="color: #ffffff;">
+                    LinkedIn: <a href="https://www.linkedin.com/in/jean-paul-huertas" class="terminal-link" target="_blank">linkedin.com/in/jean-paul-huertas</a><br>
+                    GitHub: <a href="https://github.com/jepaul710" class="terminal-link" target="_blank">github.com/jepaul710</a>
+                </div>
+
+                <div class="terminal-line interactive-line" id="trigger-line">
+                    <span class="terminal-prompt">$</span> <span class="action-text">[ PRESS ENTER TO UNLOCK BANNER ]</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden-boss-banner" id="boss-banner">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+                <h3 data-es="PLAYER 1 UNLOCKED • TECH ARTIST READY" data-en="PLAYER 1 UNLOCKED • TECH ARTIST READY">
+                    PLAYER 1 UNLOCKED • TECH ARTIST READY
+                </h3>
+                <p data-es="¿Listo para coordinar Arte, Código y QA sin lag?" data-en="Ready to sync Art, Code, and QA lag-free?">
+                    ¿Listo para coordinar Arte, Código y QA sin lag?
+                </p>
                 </div>
             </div>
         </div>
@@ -1231,6 +1313,29 @@
             <p id="footer-text" data-es="© 2026 Jean Paul Huertas. Diseñado y Desarrollado con temática Gamer. Todo el código de control de calidad garantizado sin bugs." data-en="© 2026 Jean Paul Huertas. Designed and Developed with a Gamer theme. All quality control code guaranteed bug-free.">© 2026 Jean Paul Huertas. Diseñado y Desarrollado con temática Gamer. Todo el código de control de calidad garantizado sin bugs.</p>
         </div>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const triggerLine = document.getElementById('trigger-line');
+        const bossBanner = document.getElementById('boss-banner');
+    
+        function unlockBanner() {
+            if (!bossBanner.classList.contains('active')) {
+                bossBanner.classList.add('active');
+                
+                triggerLine.innerHTML = '<span class="terminal-prompt">$</span> <span style="color: #00d2ff;">[ SYSTEM: BANNER_UNLOCKED.EXE SUCCESSFUL ]</span>';
+            }
+        }
+    
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                unlockBanner();
+            }
+        });
+    
+        triggerLine.addEventListener('click', unlockBanner);
+    });
+    </script>
 
     <script>
                 function switchLanguage(lang) {
