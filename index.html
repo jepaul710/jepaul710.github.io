@@ -1037,9 +1037,9 @@
         <div class="edu-column">
             <h2 class="cv-block-title">
                 <i class="fa-solid fa-graduation-cap"></i> 
-                <span data-es="Educación & Bootcamps" data-en="Education & Bootcamps">Educación & Bootcamps</span>
+                <span data-es="Educación & Idiomas" data-en="Education & Languages">Educación & Idiomas</span>
             </h2>
-
+            
             <div class="cyber-card">
                 <div class="card-header-cyber">
                     <div>
@@ -1065,12 +1065,29 @@
             <div class="cyber-card">
                 <div class="card-header-cyber">
                     <div>
-                        <h3 class="role-title" data-es="Técnico Programación de Software" data-en="Software Programming Technician">Técnico Programación de Software</h3>
+                        <h3 class="role-title" data-es="Técnico en Programación de Software" data-en="Software Programming Technician">Técnico en Programación de Software</h3>
                         <span class="company-tag" data-es="Servicio Nacional de Aprendizaje (SENA)" data-en="National Learning Service (SENA)">Servicio Nacional de Aprendizaje (SENA)</span>
                     </div>
                     <span class="date-badge" data-es="Dic 20, 2018" data-en="Dec 20, 2018">Dic 20, 2018</span>
                 </div>
                 <div class="card-location"><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</div>
+            </div>
+            <div class="cyber-card">
+                <div class="card-header-cyber">
+                    <div>
+                        <h3 class="role-title" data-es="Idiomas" data-en="Languages">Idiomas</h3>
+                        <span class="company-tag" data-es="Nivel Avanzado C1" data-en="Advanced Level C1">Nivel Avanzado C1</span>
+                    </div>
+                    <span class="date-badge" data-es="2018 - 2022" data-en="2018 - 2022">2018 - 2022</span>
+                </div>
+                <ul class="cyber-list">
+                    <li data-es="Inglés" data-en="English">
+                        Inglés
+                    </li>
+                    <li data-es="Francés" data-en="French">
+                        Francés
+                    </li>
+                </ul>
             </div>
         </div>
         
@@ -1083,7 +1100,7 @@
             <div class="cyber-card">
                 <div class="card-header-cyber">
                     <div>
-                        <h3 class="role-title" data-es="Soporte Tecnico Especialista - PlayStation" data-en="PlayStation Technical Support Specialist">Soporte Tecnico Especialista - PlayStation</h3>
+                        <h3 class="role-title" data-es="Soporte Técnico - PlayStation" data-en="PlayStation Technical Support">Soporte Técnico - PlayStation</h3>
                         <span class="company-tag">Teleperformance</span>
                     </div>
                     <span class="date-badge" data-es="Mar 2023 - Dic 2023" data-en="Mar 2023 - Dec 2023">Mar 2023 - Dic 2023</span>
@@ -1103,7 +1120,7 @@
                         <h3 class="role-title" data-es="Analista de Calidad y Datos" data-en="Quality & Data Analyst">Analista de Calidad y Datos</h3>
                         <span class="company-tag">Transcom</span>
                     </div>
-                    <span class="date-badge" data-es="Oct 2021 - Abr 2022" data-en="Oct 2021 - Apr 2022">Oct 2021 - Abr 2022</span>
+                    <span class="date-badge" data-es="Oct 2021 - Abr 2022" data-en="Oct 2021 - Apr 2022">Oct 2021 - Apr 2022</span>
                 </div>
                 <div class="card-location"><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</div>
                 <ul class="cyber-list">
@@ -1120,7 +1137,7 @@
                         <h3 class="role-title" data-es="Desarrollador de Software" data-en="Software Developer">Desarrollador de Software</h3>
                         <span class="company-tag">IT Outsourcing</span>
                     </div>
-                    <span class="date-badge" data-es="Abr 2018 - Oct 2018" data-en="Apr 2018 - Oct 2018">Abr 2018 - Oct 2018</span>
+                    <span class="date-badge" data-es="Abr 2018 - Oct 2018" data-en="Apr 2018 - Oct 2018">Apr 2018 - Oct 2018</span>
                 </div>
                 <div class="card-location"><i class="fa-solid fa-location-dot"></i> Bogotá, Colombia</div>
                 <ul class="cyber-list">
@@ -1134,7 +1151,7 @@
         </div>
 
     </div>
-    </section>
+</section>
 
     <section id="portfolio">
         <div class="container">
@@ -1259,19 +1276,20 @@
     </footer>
 
     <script>
-        function switchLanguage(lang) {
+                function switchLanguage(lang) {
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
-
+            if (window.event && window.event.target) {
+                window.event.target.classList.add('active');
+            }
+        
             document.querySelectorAll('[data-es]').forEach(elem => {
-                if (lang === 'es') {
-                    if (elem.tagName === 'A' || elem.tagName === 'SPAN' || elem.tagName === 'P' || elem.tagName === 'DIV' || elem.tagName === 'H2' || elem.tagName === 'H4') {
+                const tag = elem.tagName;
+                if (['A', 'SPAN', 'P', 'DIV', 'H2', 'H3', 'H4', 'LI'].includes(tag)) {
+                    if (lang === 'es') {
                         elem.textContent = elem.getAttribute('data-es');
-                    }
-                } else if (lang === 'en') {
-                    if (elem.tagName === 'A' || elem.tagName === 'SPAN' || elem.tagName === 'P' || elem.tagName === 'DIV' || elem.tagName === 'H2' || elem.tagName === 'H4') {
+                    } else if (lang === 'en') {
                         elem.textContent = elem.getAttribute('data-en');
                     }
                 }
