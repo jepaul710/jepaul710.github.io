@@ -149,6 +149,62 @@
             text-shadow: 0 0 8px rgba(255, 0, 127, 0.4);
         }
 
+        .social-links-cyber {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .cyber-icon-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: rgba(12, 19, 36, 0.8);
+            border: 2px solid var(--neon-qa);
+            color: var(--neon-qa);
+            font-size: 1.5rem;
+            text-decoration: none;
+            clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 15% 100%, 0 75%);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+        }
+        
+        .cyber-icon-btn.github {
+            border-color: var(--neon-unity);
+            color: var(--neon-unity);
+            box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+        }
+        
+        .cyber-icon-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--neon-qa);
+            color: var(--bg-darker);
+            box-shadow: 0 0 20px var(--neon-qa), inset 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .cyber-icon-btn.github:hover {
+            background: var(--neon-unity);
+            color: var(--bg-darker);
+            box-shadow: 0 0 20px var(--neon-unity), inset 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .cyber-icon-btn::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: transparent;
+            z-index: -1;
+            clip-path: polygon(0 0, 85% 0, 100% 25%, 100% 100%, 15% 100%, 0 75%);
+            transition: all 0.3s ease;
+        }
+
         section {
             padding: 80px 0;
             position: relative;
@@ -679,6 +735,14 @@
             
             <div class="legendary-quote">
                 <p id="hero-quote" data-es="“Soy el jefe final que tus bugs no podrán vencer y el guerrero que luchará por tu juego!”" data-en="“I am the final boss that your bugs won't defeat and the warrior who will fight for your game!”">“Soy el jefe final que tus bugs no podrán vencer y el guerrero que luchará por tu juego!”</p>
+            </div>
+            <div class="social-links-cyber">
+                <a href="https://www.linkedin.com/in/jeanpaulhuertas/" target="_blank" class="cyber-icon-btn linkedin" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/jepaul710" target="_blank" class="cyber-icon-btn github" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
             </div>
         </div>
     </header>
