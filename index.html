@@ -1320,10 +1320,12 @@
         const bossBanner = document.getElementById('boss-banner');
     
         function unlockBanner() {
-            if (!bossBanner.classList.contains('active')) {
+            if (bossBanner && !bossBanner.classList.contains('active')) {
                 bossBanner.classList.add('active');
                 
-                triggerLine.innerHTML = '<span class="terminal-prompt">$</span> <span style="color: #00d2ff;">[ SYSTEM: BANNER_UNLOCKED.EXE SUCCESSFUL ]</span>';
+                if (triggerLine) {
+                    triggerLine.innerHTML = '<span class="terminal-prompt">$</span> <span style="color: #00d2ff;">[ SYSTEM: BANNER_UNLOCKED.EXE SUCCESSFUL ]</span>';
+                }
             }
         }
     
@@ -1333,30 +1335,28 @@
             }
         });
     
-        triggerLine.addEventListener('click', unlockBanner);
-    });
-    </script>
-
-    <script>
-                function switchLanguage(lang) {
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            if (window.event && window.event.target) {
-                window.event.target.classList.add('active');
-            }
-        
-            document.querySelectorAll('[data-es]').forEach(elem => {
-                const tag = elem.tagName;
-                if (['A', 'SPAN', 'P', 'DIV', 'H2', 'H3', 'H4', 'LI'].includes(tag)) {
-                    if (lang === 'es') {
-                        elem.textContent = elem.getAttribute('data-es');
-                    } else if (lang === 'en') {
-                        elem.textContent = elem.getAttribute('data-en');
-                    }
-                }
-            });
+        if (triggerLine) {
+            triggerLine.addEventListener('click', unlockBanner);
         }
+    });
+    
+    function switchLanguage(lang) {
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+    
+        if (window.event && window.event.currentTarget) {
+            window.event.currentTarget.classList.add('active');
+        }
+    
+        document.querySelectorAll('[data-es]').forEach(elem => {
+            const text = elem.getAttribute(`data-${lang}`);
+            if (text) {
+                elem.textContent = text;
+            }
+        });
+    }
     </script>
 </body>
 </html>
